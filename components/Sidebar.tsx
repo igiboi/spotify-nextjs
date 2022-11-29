@@ -6,11 +6,26 @@ import {
   HeartIcon,
   RssIcon,
 } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
 
-function Sidebar() {
+import { signOut, useSession } from "next-auth/react";
+import { Session } from "inspector";
+
+function Sidebar(props: { session?: Session }) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  console.log(session);
+
   return (
     <div className="text-gray-500 p-5 text-sm border-r border-gray-900">
       <div className="space-y-4">
+        <button
+          className="flex items-center space-x-2 hover:text-green-600 "
+          onClick={() => signOut({ callbackUrl: "/login" })}
+        >
+          <p>Log out</p>
+        </button>
         <button className="flex items-center space-x-2 hover:text-green-600 ">
           <HomeIcon className="h-5 w-5" />
           <p>Home</p>
