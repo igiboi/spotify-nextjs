@@ -15,8 +15,13 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": [
+  "include": [ 
+    "components/Center.js", 
+   "hooks/useSpotify.js",
+   "pages/login.tsx",
+   "components/**/*.tsx",
     "next-env.d.ts",
+    "pages/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
     "additional.d.ts"
