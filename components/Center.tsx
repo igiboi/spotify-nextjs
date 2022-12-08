@@ -14,7 +14,7 @@ const colors = [
 ];
 
 function Center() {
-  const { data: session } = useSession();
+  const { data: session }: any = useSession();
   const [color, setColor] = useState<string | undefined>();
 
   useEffect(() => {

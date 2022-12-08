@@ -4,7 +4,7 @@ import { JWT } from "next-auth/jwt";
 import SpotifyProvider from "next-auth/providers/spotify"
 import spotifyApi, { LOGIN_URL } from "../../../lib/spotify"
 
-async function refreshAccessToken(token: JWT) {
+async function refreshAccessToken({token}: any) {
     try {
 
         spotifyApi.setAccessToken(token.accessToken);
@@ -46,7 +46,7 @@ export default NextAuth({
         signOut: '/login',
     },
     callbacks: {
-        async jwt({ token, account, user }) {
+        async jwt({ token, account, user }: any) {
 
             // initial sign in
                 if(account && user) {
@@ -70,7 +70,7 @@ export default NextAuth({
             return await refreshAccessToken(token);
         },
         
-        async session({ session, token }) {
+        async session({ session, token }: any) {
             session.user.accessToken = token.accessToken;
             session.user.refreshToken = token.refreshToken;
             session.user.username = token.username; 

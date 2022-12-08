@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import spotifyApi from "../lib/spotify";
 
 function useSpotify() {
-  const { data: session, status } = useSession();
+  const { data: session, status }: any = useSession();
 
   useEffect(() => {
     if (session) {
