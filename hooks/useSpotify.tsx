@@ -1,10 +1,15 @@
 import { useSession, signIn } from "next-auth/react";
-import { SubresourceIntegrityPlugin } from "next/dist/build/webpack/plugins/subresource-integrity-plugin";
 import { useEffect } from "react";
-import spotifyApi from "../lib/spotify";
+import SpotifyWebApi from "spotify-web-api-node";
+// import spotifyApi from "../lib/spotify";
+
+const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.NEXT_PUBLIC_CLIENT_ID!,
+  clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET!,
+});
 
 function useSpotify() {
-  const { data: session, status }: any = useSession();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (session) {
@@ -16,7 +21,7 @@ function useSpotify() {
     }
   }, [session]);
 
-  return null;
+  return spotifyApi;
 }
 
 export default useSpotify;

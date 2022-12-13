@@ -6,14 +6,27 @@ import {
   HeartIcon,
   RssIcon,
 } from "@heroicons/react/24/outline";
-import { useRouter } from "next/router";
 
 import { signOut, useSession } from "next-auth/react";
-import { Session } from "inspector";
+import { useEffect, useState } from "react";
+import useSpotify from "../hooks/useSpotify";
 
-function Sidebar(props: { session?: Session }) {
+function Sidebar() {
+  const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
-  const router = useRouter();
+  const [playlists, setPlaylist] = useState<{ body: string; items: string }[]>(
+    []
+  );
+
+  useEffect(() => {
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getUserPlaylists().then((data) => {
+        setPlaylist(data.body.items);
+      });
+    }
+  }, [session, spotifyApi]);
+
+  console.log(spotifyApi);
 
   return (
     <div className="text-gray-500 p-5 text-sm border-r border-gray-900 overflow-y-scroll scrollbar-hide h-screen">

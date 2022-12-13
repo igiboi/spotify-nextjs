@@ -17,7 +17,6 @@
   },
   "include": [ 
     "components/Center.js", 
-   "hooks/useSpotify.js",
    "pages/login.tsx",
    "components/**/*.tsx",
     "next-env.d.ts",
