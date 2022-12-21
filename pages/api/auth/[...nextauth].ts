@@ -72,12 +72,12 @@ export default NextAuth({
         
         async session({ session, token }) {
             session.accessToken = token.accessToken;
-            session.user.refreshToken = token.refreshToken;
-            session.user.username = token.username; 
+            session.refreshToken = token.refreshToken;
+            session.username = token.username; 
 
 
             return session
         }
-        
+      
     },
 })

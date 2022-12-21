@@ -6,15 +6,16 @@ declare module 'next-auth' {
     accessToken: string;
     idToken: string;
     issuer: string;
-    user: {
-      id: string;
-      groups: string[];
-      signedTac: string;
-    } & DefaultSession['user'];
+    error: string;
+    username: string;  
+    refreshToken: string; 
     publicApi: string;
     publicDomain: string;
     collectionARN: string;
     prefix: string;
+    data: string[];
+    body: string;
+    items: string;
   }
 
   interface Profile {
@@ -28,6 +29,9 @@ declare module 'next-auth' {
     expires_at: number;
     refresh_token: string;
     id_token: string;
+     data: string[];
+    body: string;
+    items: string;
   }
 }
 
@@ -35,11 +39,12 @@ declare module 'next-auth/jwt' {
   interface JWT {
     profile?: any;
     accessToken: string;
+    refreshAccessToken: string;
     accessTokenExpires: number;
     refreshToken: string;
     idToken: string;
-      username; string;  
-      refreshAccessToken
-      
+    username: string;  
+    refresh_token: string;
+
   }
 }

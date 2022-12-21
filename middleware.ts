@@ -4,7 +4,7 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
 
-  const token = await getToken({ req, secret: process.env.NEXTAUTH_URL });
+  const token = await getToken({ req, secret: process.env.JWT_SECRET });
 
   const { pathname } = req.nextUrl;
 
@@ -18,6 +18,6 @@ export async function middleware(req: NextRequest) {
   }
 
   if (!token && pathname !== "/login") {
-        url.pathname = "/login";
- return NextResponse.rewrite(new URL('/', req.url))  }
+    return NextResponse.rewrite(new URL('/login', req.url))
+  }
 }
