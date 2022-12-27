@@ -1,8 +1,8 @@
-import type { NextPage } from "next";
+import { getSession } from "next-auth/react";
 import Sidebar from "../components/Sidebar";
 import Center from "../components/Center";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <div className="bg-black h-screen overflow-hidden">
       <main className="flex">
@@ -13,6 +13,15 @@ const Home: NextPage = () => {
       <div>{/* Player */}</div>
     </div>
   );
-};
+}
 
-export default Home;
+// this pre render/fetch the user on the server before login in
+export async function getServerSideProps(context: any) {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
+}

@@ -24,7 +24,7 @@ declare module 'next-auth' {
     signed_tac: string;
   }
 
-  interface Account {
+  interface Center {
     access_token: string;
     expires_at: number;
     refresh_token: string;
