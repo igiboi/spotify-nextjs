@@ -47,7 +47,7 @@ export default NextAuth({
         signOut: '/login',
     },
     callbacks: {
-        async jwt({ token, account, user }) {
+        async jwt({ token, account, user }: any) {
 
             // initial sign in
                 if(account && user && account.expires_at) {
