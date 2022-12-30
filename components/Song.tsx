@@ -6,7 +6,7 @@ function Song({ order, track }: any) {
   return (
     <div className="grid grid-cols-2">
       <div className="flex items-center space-x-4">
-        <p>{order}</p>
+        <p>{order + 1}</p>
         <img className="h-10 w-10" src={track.track.album.images[0].url} />
         <div>
           <p>{track.track.name}</p>
