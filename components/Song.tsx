@@ -1,4 +1,5 @@
 import useSpotify from "../hooks/useSpotify";
+import { millisToMinutesAndSeciods } from "../lib/time";
 
 function Song({ order, track }: any) {
   const spotifyApi = useSpotify();
@@ -16,7 +17,7 @@ function Song({ order, track }: any) {
 
       <div className="flex items-center justify-between ml-auto md:ml-0">
         <p className="hidden md:inline">{track.track.album.name}</p>
-        <p>Duration</p>
+        <p>{millisToMinutesAndSeciods(track.track.duration_ms)}</p>
       </div>
     </div>
   );
