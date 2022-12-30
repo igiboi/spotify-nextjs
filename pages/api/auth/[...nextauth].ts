@@ -29,6 +29,7 @@ async function refreshAccessToken(token: JWT) {
     
 }
 
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -49,7 +50,7 @@ export default NextAuth({
         async jwt({ token, account, user }) {
 
             // initial sign in
-                if(account && user) {
+                if(account && user && account.expires_at) {
                     return {
                         ...token,
                         accessToken: account.access_token,

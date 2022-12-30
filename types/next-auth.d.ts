@@ -1,5 +1,6 @@
 import NextAuth, { DefaultSession } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
+import { Songs } from 'next-auth/songs';
 
 declare module 'next-auth' {
   interface Session {
@@ -24,6 +25,11 @@ declare module 'next-auth' {
     signed_tac: string;
   }
 
+  declare module 'next-auth/songs' {
+    interface Songs {
+      tracks: string;
+    }
+  }
   interface Center {
     access_token: string;
     expires_at: number;
@@ -45,6 +51,7 @@ declare module 'next-auth/jwt' {
     idToken: string;
     username: string;  
     refresh_token: string;
+    expires_at: number;
 
   }
 }

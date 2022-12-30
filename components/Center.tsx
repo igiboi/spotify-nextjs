@@ -6,6 +6,7 @@ import { playlistsIdState, playlistState } from "../atoms/playlistAtom";
 import { useRecoilState } from "recoil";
 import spotifyApi from "../lib/spotify";
 import useSpotify from "../hooks/useSpotify";
+import Songs from "./Songs";
 
 const colors = [
   "from-indigo-500",
@@ -69,6 +70,7 @@ function Center() {
           </h1>
         </div>
       </section>
+      <Songs />
     </div>
   );
 }

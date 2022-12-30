@@ -76,7 +76,7 @@ function Sidebar() {
         <hr className="border-t-[0.1px] border-gray-900" />
 
         {/* Playlist */}
-        {playlists.map((playlist) => (
+        {playlists.map((playlist: any) => (
           <p
             key={playlist.id}
             onClick={() => setPlaylistsId(playlist.id)}
