@@ -24,7 +24,7 @@ function Sidebar() {
     }[]
   >([]);
 
-  console.log("you picked this playlist", playlistsId);
+  // console.log("you picked this playlist", playlistsId);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {

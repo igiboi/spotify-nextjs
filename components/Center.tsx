@@ -40,7 +40,7 @@ function Center() {
       });
   }, [spotifyApi, playlistsId]);
 
-  console.log(playlist);
+  // console.log(playlist);
 
   return (
     <div className=" flex-grow h-screen overflow-y-scroll">
