@@ -20,7 +20,7 @@ function Sidebar() {
   const [playlists, setPlaylist] = useState<
     {
       name: ReactNode;
-      id: Key | null | undefined;
+      id: string;
     }[]
   >([]);
 
@@ -76,7 +76,7 @@ function Sidebar() {
         <hr className="border-t-[0.1px] border-gray-900" />
 
         {/* Playlist */}
-        {playlists.map((playlist: any) => (
+        {playlists.map((playlist) => (
           <p
             key={playlist.id}
             onClick={() => setPlaylistsId(playlist.id)}
